@@ -14,6 +14,8 @@ RUN DEBIAN_FRONTEND=noninteractive \
     /build-ejbca.sh && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN cp $EJBCA_HOME/conf/jaxws.properties.sample $EJBCA_HOME/conf/jaxws.properties
+
 VOLUME /root
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
